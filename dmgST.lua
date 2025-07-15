@@ -25,7 +25,7 @@ function IWin:dmgST()
 		end--]]
         -- Hopefully improve this in the future, this checks for charge range 10 to 28 instead of 8-25, dont swap stance and charge if above 50 rage. Charge if already in battle stance
         local _, _, isActive = GetShapeshiftFormInfo(1)
-        if IWin:GetSpell("Charge") and not UnitAffectingCombat("player") and not IWin:OnCooldown("Charge") and CheckInteractDistance("target", 3) == nil and CheckInteractDistance("target", 4) == 1 then
+        --[[if IWin:GetSpell("Charge") and not UnitAffectingCombat("player") and not IWin:OnCooldown("Charge") and CheckInteractDistance("target", 3) == nil and CheckInteractDistance("target", 4) == 1 then
             if UnitMana("player") < 51 then
                 c("Battle Stance")
                 c("Charge")
@@ -34,7 +34,7 @@ function IWin:dmgST()
                 c("Charge")
                 return
             end
-        end
+        end --]]
         if (UnitHealth("target") / UnitHealthMax("target")) <= 0.2 and UnitMana("player") > 9 then
             c("Berserker Stance")
             c("Execute")
