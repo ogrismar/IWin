@@ -80,6 +80,7 @@ function IWin:dmgAOE()
             end
         elseif IWin:GetSpell("Cleave") and UnitMana("player") > 24 then
             c("Cleave")
+		return
         elseif IWin:GetSpell("Bloodthirst") and not IWin:OnCooldown("Bloodthirst") and UnitMana("player") > 29 then
             c("Bloodthirst")
             return
