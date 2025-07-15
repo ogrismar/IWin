@@ -24,6 +24,7 @@ function IWin:dmgAOE()
 			end
 		end--]]
         -- Hopefully improve this in the future, this checks for charge range 10 to 28 instead of 8-25, dont swap stance and charge if above 50 rage. Charge if already in battle stance
+        
         local _, _, isActive = GetShapeshiftFormInfo(1)
         if IWin:GetSpell("Charge") and not UnitAffectingCombat("player") and not IWin:OnCooldown("Charge") and CheckInteractDistance("target", 3) == nil and CheckInteractDistance("target", 4) == 1 then
             if UnitMana("player") < 51 then
@@ -40,11 +41,12 @@ function IWin:dmgAOE()
             c("Execute")
             return
         end
-         --[[
+	--[[	
         if UnitIsPlayer("target") and not IWin:GetBuff("target", "Hamstring") then
             c("Hamstring")
             return
         end
+	--]]
         --[[
         if GetTime() - IWin_Settings["dodge"] < 5 then
             if IWin:GetSpell("Overpower") and not IWin:OnCooldown("Overpower") and UnitMana("player") < 30 and UnitMana("player") > 4 then
@@ -71,21 +73,19 @@ function IWin:dmgAOE()
             c("Bloodrage")
             return
         end
-
-        if IWin:GetSpell("Cleave") and UnitMana("player") > 29 then
-            c("Cleave")
-            return
-        elseif IWin:GetSpell("Mortal Strike") and not IWin:OnCooldown("Mortal Strike") and UnitMana("player") > 29 then
-            c("Mortal Strike")
-            return
-        elseif IWin:GetSpell("Whirlwind") and not IWin:OnCooldown("Whirlwind") and UnitMana("player") > 29 then
+        if IWin:GetSpell("Whirlwind") and not IWin:OnCooldown("Whirlwind") and UnitMana("player") > 29 then
             if CheckInteractDistance("target", 1) ~= nil then
                 c("Whirlwind")
                 return
             end
+        elseif IWin:GetSpell("Cleave") and UnitMana("player") > 29 then
+            c("Cleave")
         elseif IWin:GetSpell("Bloodthirst") and not IWin:OnCooldown("Bloodthirst") and UnitMana("player") > 29 then
             c("Bloodthirst")
+            return
+        elseif IWin:GetSpell("Mortal Strike") and not IWin:OnCooldown("Mortal Strike") and UnitMana("player") > 29 then
+            c("Mortal Strike")
+            return
         end
-        
     end
 end
