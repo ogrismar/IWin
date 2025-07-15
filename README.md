@@ -1,2 +1,2 @@
 # IWin
-A one button macro addon for Warriors, forking for turtle wow
+A (one) four button macro addon for Warriors, forking for turtle wow
