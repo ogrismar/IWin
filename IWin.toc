@@ -3,7 +3,7 @@
 ## Notes: One button to rule them all!
 ## SavedVariables: 
 dmgST.lua
-# dmgAOE.lua
+dmgAOE.lua
 tankST.lua
 tankAOE.lua
 IWin.lua
