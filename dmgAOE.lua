@@ -73,12 +73,12 @@ function IWin:dmgAOE()
             c("Bloodrage")
             return
         end
-        if IWin:GetSpell("Whirlwind") and not IWin:OnCooldown("Whirlwind") and UnitMana("player") > 29 then
+        if IWin:GetSpell("Whirlwind") and not IWin:OnCooldown("Whirlwind") and UnitMana("player") > 24 then
             if CheckInteractDistance("target", 1) ~= nil then
                 c("Whirlwind")
                 return
             end
-        elseif IWin:GetSpell("Cleave") and UnitMana("player") > 29 then
+        elseif IWin:GetSpell("Cleave") and UnitMana("player") > 24 then
             c("Cleave")
         elseif IWin:GetSpell("Bloodthirst") and not IWin:OnCooldown("Bloodthirst") and UnitMana("player") > 29 then
             c("Bloodthirst")
@@ -86,9 +86,6 @@ function IWin:dmgAOE()
 	elseif IWin:GetSpell("Mortal Strike") and not IWin:OnCooldown("Mortal Strike") and UnitMana("player") > 29 then
             c("Mortal Strike")
             return		
-        elseif IWin:GetSpell("Mortal Strike") and not IWin:OnCooldown("Mortal Strike") and UnitMana("player") > 29 then
-            c("Mortal Strike")
-            return
         end
     end
 end
